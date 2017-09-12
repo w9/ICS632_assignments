@@ -8,3 +8,6 @@ ji:
 
 tiled:
 	clang-3.5 ./main.c -O3 -o tiled -DN=$N -DBS=16 -DALGO=2 && perf stat ./main
+
+pandoc:
+	pandoc -i README.md -o README.pdf

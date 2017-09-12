@@ -85,7 +85,7 @@ def main():
             print('---------- tiled (bs = {}) ----------'.format(bs))
             wall_times.append(compile_run_and_perf(rep, 'tiled', bs))
 
-    with open('results_{}.csv'.format(environ['HOSTNAME']), 'w') as f:
+    with open('results_{}_{}.csv'.format(environ['HOSTNAME'], COMPILER), 'w') as f:
         f.write('# HOSTNAME = {}\n'.format(environ['HOSTNAME']))
         wr = csv.DictWriter(f, wall_times[0].keys())
         wr.writeheader()

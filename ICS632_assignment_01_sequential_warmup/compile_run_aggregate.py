@@ -4,7 +4,7 @@ stats in a text file.
 """
 
 from subprocess import run, PIPE
-from os import system, popen
+from os import system, popen, environ
 import re
 import csv
 
@@ -64,7 +64,8 @@ def main():
             print('---------- tiled (bs = {}) ----------'.format(bs))
             wall_times.append(compile_run_and_perf(rep, 'tiled', bs))
 
-    with open('results.csv', 'w') as f:
+    with open('results_{}.csv'.format(environ['HOSTNAME']), 'w') as f:
+        f.write('# HOSTNAME = {}'.format(environ['HOSTNAME']))
         wr = csv.DictWriter(f, wall_times[0].keys())
         wr.writeheader()
         wr.writerows(wall_times)

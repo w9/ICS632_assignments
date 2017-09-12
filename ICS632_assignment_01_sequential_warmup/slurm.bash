@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH -n 1                    # Number of tasks
-#SBATCH -c 20                   # Number of cores requested
+#SBATCH -c 10                   # Number of cores requested
 #SBATCH -N 1                    # Number of nodes requested
 #SBATCH -t 30                   # Runtime in minutes
 #SBATCH -o slurm_stdout         # Standard out goes to this file

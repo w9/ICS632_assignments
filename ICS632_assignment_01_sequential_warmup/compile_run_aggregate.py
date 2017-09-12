@@ -16,7 +16,7 @@ N_REP = 10
 #N_REP = 1
 N_SEQUENTIAL = 300
 #N_SEQUENTIAL = 0
-COMPILER = 'icc'
+COMPILER = 'gcc'
 
 ALGO_CODES = {
     'ij': 0,

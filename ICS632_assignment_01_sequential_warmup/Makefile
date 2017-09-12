@@ -1,13 +1,16 @@
-N = 22000
+N = 18000
+#COMPILER = clang-3.5
+#COMPILER = gcc
+COMPILER = icc
 
 ij:
-	clang-3.5 ./main.c -O3 -o ij -DN=$N -DALGO=0 && perf stat ./main
+	${COMPILER} ./main.c -O3 -o main -DN=$N -DALGO=0 -mcmodel=medium && perf stat ./main
 
 ji:
-	clang-3.5 ./main.c -O3 -o ji -DN=$N -DALGO=1 && perf stat ./main
+	${COMPILER} ./main.c -O3 -o main -DN=$N -DALGO=1 -mcmodel=medium && perf stat ./main
 
 tiled:
-	clang-3.5 ./main.c -O3 -o tiled -DN=$N -DBS=16 -DALGO=2 && perf stat ./main
+	${COMPILER} ./main.c -O3 -o main -DN=$N -DBS=16 -DALGO=2 -mcmodel=medium && perf stat ./main
 
 pandoc:
 	pandoc -i README.md -o README.pdf

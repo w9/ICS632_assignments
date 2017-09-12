@@ -11,6 +11,11 @@ import csv
 RE_WALL_TIME = re.compile(r'([0-9.]+) seconds time elapsed')
 RE_L1_LOAD_MISSES = re.compile(r'([0-9,]+) +L1-dcache-load-misses')
 RE_LLC_LOAD_MISSES = re.compile(r'([0-9,]+) +LLC-load-misses')
+N = 10000
+N_REP = 1
+#N_SEQUENTIAL = 300
+N_SEQUENTIAL = 0
+COMPILER = 'icc'
 
 ALGO_CODES = {
     'ij': 0,
@@ -20,7 +25,7 @@ ALGO_CODES = {
 
 
 def compile_run_and_perf(rep, algo='tiled', bs=1):
-    cmd = 'clang-3.5 ./main.c -O3 -o main -DN=22000 -DBS={BS} -DALGO={ALGO} -mcmodel=medium'.format(BS=bs, ALGO=ALGO_CODES[algo])
+    cmd = '{COMPILER} ./main.c -O3 -o main -DN={N} -DBS={BS} -DALGO={ALGO} -mcmodel=medium'.format(COMPILER=COMPILER, N=N, BS=bs, ALGO=ALGO_CODES[algo])
     print(cmd)
     cmdp = run(cmd.split(' '), stdout=PIPE, stderr=PIPE)
     print('Stdout: {}'.format(cmdp.stdout))
@@ -44,7 +49,7 @@ def compile_run_and_perf(rep, algo='tiled', bs=1):
 
 def main():
     wall_times = []
-    for rep in [x+1 for x in range(10)]:
+    for rep in [x+1 for x in range(N_REP)]:
         print('============== rep = {} =============='.format(rep))
 
         print('---------- ij ----------')
@@ -53,7 +58,7 @@ def main():
         print('---------- ji ----------')
         wall_times.append(compile_run_and_perf(rep, 'ji'))
 
-        bs_candidates = set([x+1 for x in range(300)] + [round(2**(x/2)) for x in range(8,40)])
+        bs_candidates = set([x+1 for x in range(N_SEQUENTIAL)] + [round(2**(x/2)) for x in range(8,40)])
         for bs in bs_candidates:
             print('---------- tiled (bs = {}) ----------'.format(bs))
             wall_times.append(compile_run_and_perf(rep, 'tiled', bs))

@@ -11,4 +11,6 @@
 #SBATCH --account=ics_632
 #SBATCH -p ics632.q
 
-python
+module load lang/Python/3.5.1/python
+module load intel/ics
+python3 compile_run_aggregate.py

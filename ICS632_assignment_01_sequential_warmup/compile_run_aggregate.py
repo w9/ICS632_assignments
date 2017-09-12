@@ -11,10 +11,11 @@ import csv
 RE_WALL_TIME = re.compile(r'([0-9.]+) seconds time elapsed')
 RE_L1_LOAD_MISSES = re.compile(r'([0-9,]+) +L1-dcache-load-misses')
 RE_LLC_LOAD_MISSES = re.compile(r'([0-9,]+) +LLC-load-misses')
-N = 10000
-N_REP = 1
-#N_SEQUENTIAL = 300
-N_SEQUENTIAL = 0
+N = 18000
+N_REP = 10
+#N_REP = 1
+N_SEQUENTIAL = 300
+#N_SEQUENTIAL = 0
 COMPILER = 'icc'
 
 ALGO_CODES = {

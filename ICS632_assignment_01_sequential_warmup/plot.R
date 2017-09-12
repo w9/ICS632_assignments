@@ -1,9 +1,9 @@
 library(tidyverse)
 
-ggdat <- read_csv('./results.csv') %>%
+ggdat <- read_csv('./results_prod2-0175.csv', comment='#') %>%
   filter(algo=='tiled') %>%
   mutate(bs=factor(bs)) %>%
-  gather(measure_type, measure_value, wall_time, l1_load_misses, lcc_load_misses)
+  gather(measure_type, measure_value, wall_time, l1_load_misses, llc_load_misses)
 
 p <- ggplot(ggdat) +
   geom_boxplot(aes(bs, measure_value)) +

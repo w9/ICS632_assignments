@@ -11,3 +11,6 @@ ji:
 
 tiled:
 	${COMPILER} ./main.c -O3 -o main -DN=$N -DBS=16 -DALGO=2 -mcmodel=medium && perf stat ./main
+
+pandoc:
+	pandoc -i README.md -o README.pdf

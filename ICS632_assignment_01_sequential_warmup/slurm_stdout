@@ -1,0 +1,171 @@
+============== rep = 1 ==============
+---------- ij ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=1 -DALGO=0 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- ji ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=1 -DALGO=1 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 128) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=128 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 256) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=256 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 512) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=512 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 1024) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=1024 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 2048) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=2048 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 4096) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=4096 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 23170) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=23170 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 8192) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=8192 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 16384) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=16384 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 32768) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=32768 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 46341) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=46341 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 92682) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=92682 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 131072) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=131072 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 262144) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=262144 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 524288) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=524288 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 16) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=16 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 185364) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=185364 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 23) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=23 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 32) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=32 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 5793) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=5793 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 1448) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=1448 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 370728) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=370728 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 45) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=45 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 181) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=181 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 64) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=64 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 11585) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=11585 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 65536) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=65536 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 741455) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=741455 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 2896) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=2896 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 724) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=724 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 91) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=91 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main
+---------- tiled (bs = 362) ----------
+icc ./main.c -O3 -o main -DN=10000 -DBS=362 -DALGO=2 -mcmodel=medium
+Stdout: b''
+Stderr: b''
+perf stat -e L1-dcache-load-misses -e LLC-load-misses ./main

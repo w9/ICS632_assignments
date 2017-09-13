@@ -12,5 +12,6 @@
 #SBATCH -p ics632.q
 
 module load lang/Python/3.5.1/python
+module load GCC/7.1.0-2.28
 module load intel/ics
 python3 compile_run_aggregate.py

@@ -1,6 +1,12 @@
 library(tidyverse)
 
-ggdat <- read_csv('./results_prod2-0175.csv', comment='#') %>%
+args <- commandArgs(trailingOnly=T)
+
+if (length(args) != 1) {
+  message(sprintf('The number of arguments is not correct: 1 expected, %d received.', length(args)))
+}
+
+ggdat <- read_csv(args[1], comment='#') %>%
   filter(algo=='tiled') %>%
   mutate(bs=factor(bs)) %>%
   gather(measure_type, measure_value, wall_time, l1_load_misses, llc_load_misses)

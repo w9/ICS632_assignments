@@ -25,11 +25,12 @@ finished in 1.99 seconds.
 I wrote a Python script for invoking the compiler with various parameter
 combinations, collecting the results, and aggregate the results into a CSV file.
 
-I noticed that the first few runs take much longer than following runs, usually
-over 8 minutes or so. I suppose this is when the OS is recovering from the last
-task which potentially tapped into swap, but I'm not so sure. For example, here
-are the logs of the first few runs in a particular experiement, notice how the
-wall clock time dropped from hundreds of seconds to about two seconds:
+I noticed that when `icc` is used, the first few runs take much longer than
+following runs, usually over 8 minutes or so. I suppose this is when the OS is
+recovering from the last task which potentially tapped into swap, but I'm not so
+sure. For example, here are the logs of the first few runs in a particular
+experiement, notice how the wall clock time dropped from hundreds of seconds to
+about two seconds:
 
   algo  bs  wall_time     rep l1_load_misses llc_load_misses
   ----  --  ---------     --- -------------- ---------------

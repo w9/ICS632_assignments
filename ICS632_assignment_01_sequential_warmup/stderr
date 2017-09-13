@@ -1,8 +1,8 @@
 Traceback (most recent call last):
-  File "compile_run_aggregate.py", line 75, in <module>
+  File "compile_run_aggregate.py", line 96, in <module>
     main()
-  File "compile_run_aggregate.py", line 65, in main
+  File "compile_run_aggregate.py", line 86, in main
     wall_times.append(compile_run_and_perf(rep, 'tiled', bs))
-  File "compile_run_aggregate.py", line 45, in compile_run_and_perf
-    'wall_time': float(RE_WALL_TIME.findall(cmdp.stderr.decode('utf-8'))[0]),
+  File "compile_run_aggregate.py", line 50, in compile_run_and_perf
+    float(RE_WALL_TIME.findall(cmdp.stderr.decode('utf-8'))[0]),
 IndexError: list index out of range

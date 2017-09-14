@@ -52,27 +52,12 @@ int main() {
 
   int ti, tj;
 
-  // Four segments are used to minimize branching
-
-  for (ti = 0; ti < N/BS; ti++)
-    for (tj = 0; tj < N/BS; tj++)
+  for (ti = 0; ti < N; ti += BS)
+    for (tj = 0; tj < N; tj += BS)
       for (i = 0; i < BS; i++)
         for (j = 0; j < BS; j++)
-          A[ti*BS + i][tj*BS + j] += B[tj*BS + j][ti*BS + i];
-
-  for (ti = 0; ti < N/BS; ti++)
-    for (i = 0; i < BS; i++)
-      for (j = N/BS * BS; j < N; j++)
-        A[ti*BS + i][j] += B[j][ti*BS + i];
-
-  for (tj = 0; tj < N/BS; tj++)
-    for (j = 0; j < BS; j++)
-      for (i = N/BS * BS; i < N; i++)
-        A[i][tj*BS + j] += B[tj*BS + j][i];
-
-  for (i = N/BS * BS; i < N; i++)
-    for (j = N/BS * BS; j < N; j++)
-      A[i][j] += B[j][i];
+          if (i < N && j < N)
+            A[ti + i][tj + j] += B[tj + j][ti + i];
 
 #endif
 

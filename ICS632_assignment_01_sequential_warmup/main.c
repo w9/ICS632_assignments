@@ -54,10 +54,9 @@ int main() {
 
   for (ti = 0; ti < N; ti += BS)
     for (tj = 0; tj < N; tj += BS)
-      for (i = 0; i < BS; i++)
-        for (j = 0; j < BS; j++)
-          if (i < N && j < N)
-            A[ti + i][tj + j] += B[tj + j][ti + i];
+      for (i = ti; i < ti + BS && i < N; i++)
+        for (j = tj; j < tj + BS && j < N; j++)
+          A[i][j] += B[j][i];
 
 #endif
 

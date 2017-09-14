@@ -12,7 +12,8 @@ tb <- read_csv(args[1], comment='#')
 ggdat <- tb %>%
   filter(rep > 0) %>%
   filter(algo == 'tiled') %>%
-  filter(bs %in% (round(2^seq(0, 20, 0.5)))) %>%
+  ## filter(bs %in% (round(2^seq(0, 20, 0.5)))) %>%
+  filter(bs <= 300) %>%
   ## mutate(bs=factor(bs)) %>%
   gather(measure_type, measure_value, wall_time, l1_load_misses, llc_load_misses) %>%
   group_by(bs, measure_type) %>%
@@ -61,9 +62,9 @@ p <- ggplot(ggdat) +
   geom_line(aes(bs, mean_value)) +
   facet_wrap(~ measure_type, ncol=1, scales='free_y', labeller=labeller(measure_type=measure_type_tr)) +
   theme_tufte() +
-  scale_x_log10() +
+  ## scale_x_log10() +
   ## theme(panel.grid.major.y=element_line(color='gray80', linetype='dotted', size=0.2)) +
-  labs(x='Block size', y='Mean value', title='GCC')
+  labs(x='Block size', y='Mean value', title=args[1])
   ## theme(axis.text.x=element_text(angle=30, hjust=1))
 
 ggsave('boxplot.png', p, width=7, height=5, limitsize=F)

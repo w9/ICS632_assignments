@@ -126,3 +126,8 @@ and LLC load misses. I observe that this oddity is not present when compiling
 using `icc` -- with `icc` the performance of `i-j` and `j-i` was exactly the same.
 Therefore I suspect that there's an optimization procedure that is incorrectly
 implemented in GCC, so that it over-looks it at certain cases.
+
+
+![
+The same plot as Figure 1 but using exponentially increasing $b$.
+](./plot_gcc_exp.png)

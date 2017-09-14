@@ -27,7 +27,7 @@ ALGO_CODES = {
 
 
 def compile_run_and_perf(rep, algo='tiled', bs=1):
-    cmd = '{COMPILER} ./main.c -O3 -o main -DN={N} -DBS={BS} -DALGO={ALGO} -mcmodel=medium'.format(
+    cmd = '{COMPILER} ./main.c -Ofast -o main -DN={N} -DBS={BS} -DALGO={ALGO} -mcmodel=medium'.format(
         COMPILER=COMPILER, N=N, BS=bs, ALGO=ALGO_CODES[algo])
     print(cmd)
     cmdp = run(cmd.split(' '), stdout=PIPE, stderr=PIPE)

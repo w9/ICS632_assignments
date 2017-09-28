@@ -1,0 +1,244 @@
+There are information generated from `sudo lshw -C memory`.
+
+  *-firmware
+       description: BIOS
+       vendor: Dell Inc.
+       physical id: 0
+       version: 2.3.4
+       date: 11/08/2016
+       size: 64KiB
+       capacity: 15MiB
+       capabilities: isa pci pnp upgrade shadowing cdboot bootselect edd int13floppytoshiba int13floppy360 int13floppy1200 int13floppy720 int9keyboard int14serial int10video acpi usb biosbootspecification netboot uefi
+  *-cache:0
+       description: L1 cache
+       physical id: 700
+       size: 896KiB
+       capacity: 896KiB
+       capabilities: internal write-back unified
+  *-cache:1
+       description: L2 cache
+       physical id: 701
+       size: 3584KiB
+       capacity: 3584KiB
+       capabilities: internal write-back unified
+  *-cache:2
+       description: L3 cache
+       physical id: 702
+       size: 35MiB
+       capacity: 35MiB
+       capabilities: internal write-back unified
+  *-cache:0
+       description: L1 cache
+       physical id: 703
+       size: 896KiB
+       capacity: 896KiB
+       capabilities: internal write-back unified
+  *-cache:1
+       description: L2 cache
+       physical id: 704
+       size: 3584KiB
+       capacity: 3584KiB
+       capabilities: internal write-back unified
+  *-cache:2
+       description: L3 cache
+       physical id: 705
+       size: 35MiB
+       capacity: 35MiB
+       capabilities: internal write-back unified
+  *-memory
+       description: System Memory
+       physical id: 1000
+       slot: System board or motherboard
+       size: 256GiB
+     *-bank:0
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: 0
+          serial: 80BC292A
+          slot: A1
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:1
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: 1
+          serial: 80BC292B
+          slot: A2
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:2
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: 2
+          serial: 80BC2869
+          slot: A3
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:3
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: 3
+          serial: 80BC8A27
+          slot: A4
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:4
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: 4
+          serial: 80BC28D1
+          slot: A5
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:5
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: 5
+          serial: 80BC2936
+          slot: A6
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:6
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: 6
+          serial: 80BC28A3
+          slot: A7
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:7
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD063200AD
+          physical id: 7
+          serial: 28772F12
+          slot: A8
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:8
+          description: [empty]
+          physical id: 8
+          slot: A9
+     *-bank:9
+          description: [empty]
+          physical id: 9
+          slot: A10
+     *-bank:10
+          description: [empty]
+          physical id: a
+          slot: A11
+     *-bank:11
+          description: [empty]
+          physical id: b
+          slot: A12
+     *-bank:12
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: c
+          serial: 80BC8A1A
+          slot: B1
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:13
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: d
+          serial: 80BC2904
+          slot: B2
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:14
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: e
+          serial: 80BC295C
+          slot: B3
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:15
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: f
+          serial: 80BC8A28
+          slot: B4
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:16
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: 10
+          serial: 80BC287D
+          slot: B5
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:17
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: 11
+          serial: 80BC8A0D
+          slot: B6
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:18
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: 12
+          serial: 80BC284E
+          slot: B7
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:19
+          description: DIMM Synchronous 2133 MHz (0.5 ns)
+          product: HMA42GR7AFR4N-TF
+          vendor: 00AD00B300AD
+          physical id: 13
+          serial: 80BC2850
+          slot: B8
+          size: 16GiB
+          width: 64 bits
+          clock: 2133MHz (0.5ns)
+     *-bank:20
+          description: [empty]
+          physical id: 14
+          slot: B9
+     *-bank:21
+          description: [empty]
+          physical id: 15
+          slot: B10
+     *-bank:22
+          description: [empty]
+          physical id: 16
+          slot: B11
+     *-bank:23
+          description: [empty]
+          physical id: 17
+          slot: B12

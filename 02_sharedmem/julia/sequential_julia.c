@@ -2,6 +2,15 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+/* #include <mpi.h> */
+#include "/usr/lib/openmpi/include/mpi.h"
+
+#ifndef MAX
+  #define MAX(x, y) (((x) > (y)) ? (x) : (y))
+#endif
+#ifndef MIN
+  #define MIN(x, y) (((x) < (y)) ? (x) : (y))
+#endif
 
 int compute_julia_pixel(int x, int y, int width, int height, float tint_bias, unsigned char *rgb);
 int write_bmp_header(FILE *f, int width, int height);
@@ -138,14 +147,39 @@ int main(int argc, char **argv) {
   // Allocate array
   unsigned char *pixels = (unsigned char *)calloc(height * width * 3, sizeof(char));
 
+  int my_rank, n_threads, n_workers;
+  char hostname[128];
+  int namelen;
+
+  MPI_Init(&argc, &argv); // Called once
+  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+  MPI_Comm_size(MPI_COMM_WORLD, &n_threads);
+  MPI_Get_processor_name(hostname, &namelen);
+
+  n_workers = n_threads;
+
+  // TODO: No thread should have the entire memory.
+
   // Compute all pixels
   int y,x;
-  for (y=0; y < height; y++) {
+
+  int begin = my_rank * height / n_workers;
+  int end = (my_rank + 1) * height / n_workers;
+  printf("(%d/%d) %d - %d\n", my_rank, n_workers, begin, end - 1);
+
+  for (y=begin; y < end; y++) {
     for (x=0; x < width; x++) {
       compute_julia_pixel(x, y, width, height, 1.0, &(pixels[y * 3 * width + x * 3]));
     }
   }
 
+  MPI_Finalize(); // Call once
+
+  /* for (y=0; y < height; y++) { */
+  /*   for (x=0; x < width; x++) { */
+  /*     compute_julia_pixel(x, y, width, height, 1.0, &(pixels[y * 3 * width + x * 3])); */
+  /*   } */
+  /* } */
 
   // Open file for writing
   FILE *f = fopen("./julia.bmp", "w");
@@ -157,7 +191,6 @@ int main(int argc, char **argv) {
   }
 
   // Write the pixels
-  int p;
   for (y=0; y < height; y++) {
     for (x=0; x < width; x++) {
       fwrite(&(pixels[y * 3 * width + x * 3]), sizeof(char), 3, f);

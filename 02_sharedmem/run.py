@@ -1,9 +1,9 @@
 from subprocess import run, PIPE
-from os import system, popen, environ
+from os import environ
 from datetime import datetime
-import re
+# import re
 import csv
-from colors import color
+# from colors import color
 from timeit import default_timer as timer
 
 N = 1600
@@ -12,7 +12,7 @@ COMPILER = environ.get('COMPILER', 'gcc')
 
 
 def shell(cmd, time=False, debug=False, stdout=True, stderr=True):
-    print(color(cmd, fg='blue'))
+    # print(color(cmd, fg='blue'))
 
     if time:
         tic = timer()
@@ -41,7 +41,7 @@ def perf(openmp, n_threads_arr=[1], par_loop=0, log_file=None):
     else:
         title = 'Serial'
 
-    print(color('----------- {} -----------'.format(title), fg='yellow'))
+    # print(color('----------- {} -----------'.format(title), fg='yellow'))
 
     shell('{COMPILER} -o exercise1 -Ofast {OPENMP} -DN={N} -DPAR_LOOP={PAR_LOOP} ./exercise1.c'
           .format(COMPILER=COMPILER, OPENMP='-fopenmp' if openmp else '', N=N, PAR_LOOP=par_loop))

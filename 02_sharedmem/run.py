@@ -8,6 +8,7 @@ from timeit import default_timer as timer
 
 N = 1600
 # N = 10
+COMPILER = environ.get('COMPILER', 'gcc')
 
 
 def shell(cmd, time=False, debug=False, stdout=True, stderr=True):
@@ -42,8 +43,8 @@ def perf(openmp, n_threads_arr=[1], par_loop=0, log_file=None):
 
     print(color('----------- {} -----------'.format(title), fg='yellow'))
 
-    shell('gcc -o exercise1 -Ofast {OPENMP} -DN={N} -DPAR_LOOP={PAR_LOOP} ./exercise1.c'
-          .format(OPENMP='-fopenmp' if openmp else '', N=N, PAR_LOOP=par_loop))
+    shell('{COMPILER} -o exercise1 -Ofast {OPENMP} -DN={N} -DPAR_LOOP={PAR_LOOP} ./exercise1.c'
+          .format(COMPILER=COMPILER, OPENMP='-fopenmp' if openmp else '', N=N, PAR_LOOP=par_loop))
 
     for n_threads in n_threads_arr:
         for rep in range(10):
@@ -63,12 +64,12 @@ def perf(openmp, n_threads_arr=[1], par_loop=0, log_file=None):
             wr.writerow(record)
 
 
-with open('results_{}_{}.csv'.format(environ['HOSTNAME'],
+with open('results_{}_{}.csv'.format(environ.get('HOSTNAME', 'host'),
                                      datetime.now().strftime('%y%m%d_%H%M%S')),
           'w') as f:
 
-    wr = csv.DictWriter(f, ['openmp', 'n_threads', 'par_loop', 'elapsed_time', 'result'])
-    f.write('# HOSTNAME = {}\n'.format(environ['HOSTNAME']))
+    wr = csv.DictWriter(f, ['openmp', 'n_threads', 'par_loop', 'rep', 'elapsed_time', 'result'])
+    f.write('# HOSTNAME = {}\n'.format(environ.get('HOSTNAME', 'host')))
     wr.writeheader()
 
     perf(False)

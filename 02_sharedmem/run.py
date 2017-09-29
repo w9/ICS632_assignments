@@ -76,4 +76,4 @@ with open('results_{}_{}.csv'.format(environ.get('HOSTNAME', 'host'),
 
     for par_loop in [0, 1, 2]:
         # for n_threads in [x + 1 for x in range(20)]:
-        perf(True, [1, 2, 4, 10, 20], par_loop)
+        perf(True, [x + 1 for x in range(20)], par_loop)

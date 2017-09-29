@@ -1,4 +1,4 @@
-#include "/home/xzhu/.local/lib/gcc/x86_64-pc-linux-gnu/8.0.0/include/omp.h"
+#include <omp.h>
 #include <stdio.h>
 
 #ifndef N

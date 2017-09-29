@@ -9,6 +9,7 @@ from timeit import default_timer as timer
 N = 1600
 # N = 10
 COMPILER = environ.get('COMPILER', 'gcc')
+OPENMP_OPT = '-openmp' if COMPILER == 'icc' else '-fopenmp'
 
 
 def shell(cmd, time=False, debug=False, stdout=True, stderr=True):
@@ -44,7 +45,7 @@ def perf(openmp, n_threads_arr=[1], par_loop=0, log_file=None):
     # print(color('----------- {} -----------'.format(title), fg='yellow'))
 
     shell('{COMPILER} -o exercise1 -Ofast {OPENMP} -DN={N} -DPAR_LOOP={PAR_LOOP} ./exercise1.c'
-          .format(COMPILER=COMPILER, OPENMP='-fopenmp' if openmp else '', N=N, PAR_LOOP=par_loop))
+          .format(COMPILER=COMPILER, OPENMP=OPENMP_OPT if openmp else '', N=N, PAR_LOOP=par_loop))
 
     for n_threads in n_threads_arr:
         for rep in range(10):

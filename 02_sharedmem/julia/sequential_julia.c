@@ -18,40 +18,33 @@
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 #endif
 
-int compute_julia_pixel(int x, int y, int width, int height, float tint_bias,
-                        unsigned char *rgb);
+int compute_julia_pixel(int x, int y, int width, int height, float tint_bias, unsigned char *rgb);
 int write_bmp_header(FILE *f, int width, int height);
 
-/*
- * compute_julia_pixel(): compute RBG values of a pixel in a
- *                        particular Julia set image.
+
+/**
+ * compute RBG values of a pixel in a particular Julia set image.
  *
- *  In:
- *	(x,y):            pixel coordinates
- *	(width, height):  image dimensions
- *	tint_bias:	  a float to "tweak" the tint (1.0 is "no additional
- *tint") Out: rgb: an already-allocated 3-byte array into which R, G, and B
- *	     bytes are written.
+ * @param[in]  x,y          Pixel coordinates
+ * @param[in]  width,height Image dimensions
+ * @param[in]  tint_bias    A float to "tweak" the tint (1.0 is "no additional tint")
  *
- *  Return:
- *  	0 in success, -1 on failure
+ * @param[out] rgb          An already-allocated 3-byte array into which R, G, and B bytes are written.
+ *
+ * @return 0 on success, non-zero on failure
  *
  */
-
-int compute_julia_pixel(int x, int y, int width, int height, float tint_bias,
-                        unsigned char *rgb) {
-
+int compute_julia_pixel(int x, int y, int width, int height, float tint_bias, unsigned char *rgb) {
   // Check coordinates
   if ((x < 0) || (x >= width) || (y < 0) || (y >= height)) {
-    fprintf(stderr, "Invalid (%d,%d) pixel coordinates in a %d x %d image\n", x,
-            y, width, height);
+    fprintf(stderr,"Invalid (%d,%d) pixel coordinates in a %d x %d image\n", x, y, width, height);
     return -1;
   }
 
   // "Zoom in" to a particular section of the Mandelbrot set
   float X_MIN = -1.6, X_MAX = 1.6, Y_MIN = -0.9, Y_MAX = +0.9;
-  float float_y = (Y_MAX - Y_MIN) * (float)y / height + Y_MIN;
-  float float_x = (X_MAX - X_MIN) * (float)x / width + X_MIN;
+  float float_y = (Y_MAX - Y_MIN) * (float)y / height + Y_MIN ;
+  float float_x = (X_MAX - X_MIN) * (float)x / width  + X_MIN ;
 
   // Point that defines the Julia set
   float julia_real = -.79;
@@ -61,49 +54,41 @@ int compute_julia_pixel(int x, int y, int width, int height, float tint_bias,
   int max_iter = 300;
 
   // Computing the complex series convergence
-  float real = float_y, img = float_x;
+  float real=float_y, img=float_x;
   int num_iter = max_iter;
-  while ((img * img + real * real < 2 * 2) && (num_iter > 0)) {
+  while (( img * img + real * real < 2 * 2 ) && ( num_iter > 0 )) {
     float xtemp = img * img - real * real + julia_real;
     real = 2 * img * real + julia_img;
     img = xtemp;
     num_iter--;
   }
   //
-  // Paint pixels based on how many iterations were used, using some funky
-  // colors
-  float color_bias = (float)num_iter / max_iter;
+  // Paint pixels based on how many iterations were used, using some funky colors
+  float color_bias = (float) num_iter / max_iter;
 
-  rgb[0] =
-      (num_iter == 0 ? 200
-                     : -500.0 * pow(tint_bias, 1.2) * pow(color_bias, 1.6));
-  rgb[1] = (num_iter == 0 ? 100 : -255.0 * pow(color_bias, 0.3));
-  rgb[2] = (num_iter == 0
-                ? 100
-                : 255 - 255.0 * pow(tint_bias, 1.2) * pow(color_bias, 3.0));
+  rgb[0] = (num_iter == 0 ? 200 : - 500.0 * pow(tint_bias, 1.2) *  pow(color_bias, 1.6));
+  rgb[1] = (num_iter == 0 ? 100 : -255.0 *  pow(color_bias, 0.3));
+  rgb[2] = (num_iter == 0 ? 100 : 255 - 255.0 * pow(tint_bias, 1.2) * pow(color_bias, 3.0));
 
   return 0;
 }
 
-/* write_bmp_header():
+
+/**
+ * Write the BMP header to the specified file handle. 54 bytes in total.
  *
- *   In:
- *      f: A file open for writing ('w')
- *      (width, height): image dimensions
+ * @param[in] f            A file open for writing ('w')
+ * @param[in] width,height Image dimensions
  *
- *   Return:
- *      0 on success, -1 on failure
+ * @return 0 on success, non-zero on failure
  *
  */
-
 int write_bmp_header(FILE *f, int width, int height) {
-
   unsigned int adjusted_width = width + (width % 4 == 0 ? 0 : (4 - width % 4));
 
   // Define all fields in the bmp header
   char id[2] = "BM";
-  unsigned int filesize =
-      54 + (int)(adjusted_width * height * 3 * sizeof(char));
+  unsigned int filesize = 54 + (int)(adjusted_width * height * 3 * sizeof(char));
   short reserved[2] = {0, 0};
   unsigned int offset = 54;
 
@@ -120,25 +105,72 @@ int write_bmp_header(FILE *f, int width, int height) {
   // Write the bytes to the file, keeping track of the
   // number of written "objects"
   size_t ret = 0;
-  ret += fwrite(id, sizeof(char), 2, f);
-  ret += fwrite(&filesize, sizeof(int), 1, f);
-  ret += fwrite(reserved, sizeof(short), 2, f);
-  ret += fwrite(&offset, sizeof(int), 1, f);
-  ret += fwrite(&size, sizeof(int), 1, f);
-  ret += fwrite(&width, sizeof(int), 1, f);
-  ret += fwrite(&height, sizeof(int), 1, f);
-  ret += fwrite(&planes, sizeof(short), 1, f);
-  ret += fwrite(&bits, sizeof(short), 1, f);
-  ret += fwrite(&compression, sizeof(int), 1, f);
-  ret += fwrite(&image_size, sizeof(int), 1, f);
-  ret += fwrite(&x_res, sizeof(int), 1, f);
-  ret += fwrite(&y_res, sizeof(int), 1, f);
-  ret += fwrite(&ncolors, sizeof(int), 1, f);
-  ret += fwrite(&importantcolors, sizeof(int), 1, f);
+  ret += fwrite(id,               sizeof(char),  2, f); // size = 1
+  ret += fwrite(&filesize,        sizeof(int),   1, f); // size = 4
+  ret += fwrite(reserved,         sizeof(short), 2, f); // size = 2
+  ret += fwrite(&offset,          sizeof(int),   1, f); // size = 4
+  ret += fwrite(&size,            sizeof(int),   1, f); // size = 4
+  ret += fwrite(&width,           sizeof(int),   1, f); // size = 4
+  ret += fwrite(&height,          sizeof(int),   1, f); // size = 4
+  ret += fwrite(&planes,          sizeof(short), 1, f); // size = 2
+  ret += fwrite(&bits,            sizeof(short), 1, f); // size = 2
+  ret += fwrite(&compression,     sizeof(int),   1, f); // size = 4
+  ret += fwrite(&image_size,      sizeof(int),   1, f); // size = 4
+  ret += fwrite(&x_res,           sizeof(int),   1, f); // size = 4
+  ret += fwrite(&y_res,           sizeof(int),   1, f); // size = 4
+  ret += fwrite(&ncolors,         sizeof(int),   1, f); // size = 4
+  ret += fwrite(&importantcolors, sizeof(int),   1, f); // size = 4
 
   // Success means that we wrote 17 "objects" successfully
-  return (ret != 17);
+  return ret == 17 ? 0 : -1;
 }
+
+
+/**
+ * Write the BMP header to the specified **MPI** file header. 54 bytes in total.
+ *
+ * @param[in] f            A file open for writing ('w')
+ * @param[in] width,height Image dimensions
+ *
+ * @return 0 on success, non-zero on failure
+ *
+ */
+void mpi_write_bmp_header(MPI_File *f, int width, int height) {
+  unsigned int adjusted_width = width + (width % 4 == 0 ? 0 : (4 - width % 4));
+
+  // Define all fields in the bmp header
+  char id[2] = "BM";
+  unsigned int filesize = 54 + (int)(adjusted_width * height * 3 * sizeof(char));
+  short reserved[2] = {0, 0};
+  unsigned int offset = 54;
+
+  unsigned int size = 40;
+  unsigned short planes = 1;
+  unsigned short bits = 24;
+  unsigned int compression = 0;
+  unsigned int image_size = width * height * 3 * sizeof(char);
+  int x_res = 0;
+  int y_res = 0;
+  unsigned int ncolors = 0;
+  unsigned int importantcolors = 0;
+
+  MPI_File_write(*f, id,               2, MPI_CHAR,  MPI_STATUS_IGNORE); // size = 1
+  MPI_File_write(*f, &filesize,        1, MPI_INT,   MPI_STATUS_IGNORE); // size = 4
+  MPI_File_write(*f, reserved,         2, MPI_SHORT, MPI_STATUS_IGNORE); // size = 2
+  MPI_File_write(*f, &offset,          1, MPI_INT,   MPI_STATUS_IGNORE); // size = 4
+  MPI_File_write(*f, &size,            1, MPI_INT,   MPI_STATUS_IGNORE); // size = 4
+  MPI_File_write(*f, &width,           1, MPI_INT,   MPI_STATUS_IGNORE); // size = 4
+  MPI_File_write(*f, &height,          1, MPI_INT,   MPI_STATUS_IGNORE); // size = 4
+  MPI_File_write(*f, &planes,          1, MPI_SHORT, MPI_STATUS_IGNORE); // size = 2
+  MPI_File_write(*f, &bits,            1, MPI_SHORT, MPI_STATUS_IGNORE); // size = 2
+  MPI_File_write(*f, &compression,     1, MPI_INT,   MPI_STATUS_IGNORE); // size = 4
+  MPI_File_write(*f, &image_size,      1, MPI_INT,   MPI_STATUS_IGNORE); // size = 4
+  MPI_File_write(*f, &x_res,           1, MPI_INT,   MPI_STATUS_IGNORE); // size = 4
+  MPI_File_write(*f, &y_res,           1, MPI_INT,   MPI_STATUS_IGNORE); // size = 4
+  MPI_File_write(*f, &ncolors,         1, MPI_INT,   MPI_STATUS_IGNORE); // size = 4
+  MPI_File_write(*f, &importantcolors, 1, MPI_INT,   MPI_STATUS_IGNORE); // size = 4
+}
+
 
 /*
  * main() function
@@ -168,12 +200,19 @@ int main(int argc, char **argv) {
   MPI_Comm_size(MPI_COMM_WORLD, &n_threads);
   MPI_Get_processor_name(hostname, &namelen);
 
-  int dummy = 0;
+  MPI_File fh;
+  MPI_File_open(MPI_COMM_WORLD, "julia.bmp", MPI_MODE_CREATE | MPI_MODE_WRONLY, MPI_INFO_NULL, &fh);
 
-  int n_workers = n_threads - 1;
-  if (my_rank != 0) {
-    // Worker
+  if (my_rank == 0) {
+    printf("... Master\n");
+    mpi_write_bmp_header(&fh, width, height);
+    printf("xxx Master\n");
+  } else {
+    int n_workers = n_threads - 1;
     int worker_id = my_rank - 1;
+
+    printf("... Worker %d / %d\n", worker_id, n_workers);
+
     int begin = worker_id * height / n_workers;
     int end = (worker_id + 1) * height / n_workers;
 
@@ -190,85 +229,22 @@ int main(int argc, char **argv) {
       }
     }
 
-    /* printf("[%d/%d] Done!\n", worker_id, n_workers); */
-
-    MPI_Send(&dummy, 1, MPI_INT, 0, MSG_INIT,  MPI_COMM_WORLD);
-    MPI_Send(&begin, 1, MPI_INT, 0, MSG_BEGIN,  MPI_COMM_WORLD);
-    MPI_Send(&end,   1, MPI_INT, 0, MSG_END,    MPI_COMM_WORLD);
-    MPI_Send(pixels, (end - begin) * width * 3, MPI_UNSIGNED_CHAR, 0, MSG_PIXELS, MPI_COMM_WORLD);
-  } else {
-    // Master
-    int begin;
-    int end;
-
-    int worker_status[n_workers];
-
-    // Allocate array (for the entire picture)
-    unsigned char *pixels = (unsigned char *)calloc(height * width * 3, sizeof(char));
-
-    // TODO: Change this to be order-insensitive
-    int worker_idx;
-
-    printf("Worker status: ");
-    for (worker_idx = 0; worker_idx < n_workers; worker_idx++) {
-      worker_status[worker_idx] = 0;
-      printf(". ");
-    }
-    fflush(stdout);
-
-    int i;
-    for (i = 0; i < n_workers; i++) {
-      MPI_Status status;
-
-      MPI_Recv(&dummy,  1, MPI_INT, MPI_ANY_SOURCE, MSG_INIT,  MPI_COMM_WORLD, &status);
-
-      int worker_idx = status.MPI_SOURCE - 1;
-
-      worker_status[worker_idx] = 1;
-      printf("\rWorker status: ");
-      int worker_idx2;
-      for (worker_idx2 = 0; worker_idx2 < n_workers; worker_idx2++) {
-        if (worker_status[worker_idx2] == 0) {
-          printf(". ");
-        } else {
-          printf("* ");
-        }
-      }
-      fflush(stdout);
-
-      MPI_Recv(&begin,  1, MPI_INT, worker_idx + 1, MSG_BEGIN,  MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-      MPI_Recv(&end,    1, MPI_INT, worker_idx + 1, MSG_END,    MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-      MPI_Recv(&(pixels[begin * width * 3]), (end - begin) * width * 3, MPI_UNSIGNED_CHAR, worker_idx + 1, MSG_PIXELS, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-    }
-
-    printf("\n");
-    printf("All workers done! Writing the array to file ...\n");
-
-
-    // Open file for writing
-    FILE *f = fopen("./julia.bmp", "w");
-
-    // Write header
-    if (write_bmp_header(f, width, height)) {
-      perror("Error writing header: ");
-      exit(0);
-    }
+    MPI_File_seek(fh, 54 + begin * width * 3, MPI_SEEK_SET);
 
     // Write the pixels
     for (y = 0; y < height; y++) {
       for (x = 0; x < width; x++) {
-        fwrite(&(pixels[y * 3 * width + x * 3]), sizeof(char), 3, f);
+        MPI_File_write(fh, &(pixels[y * 3 * width + x * 3]), 3, MPI_CHAR, MPI_STATUS_IGNORE);
       }
       // padding in case of an even number of pixels per row
       unsigned char padding[3] = {0, 0, 0};
-      fwrite(padding, sizeof(char), ((width * 3) % 4), f);
+      MPI_File_write(fh, padding, ((width * 3) % 4), MPI_CHAR, MPI_STATUS_IGNORE);
     }
 
-    // Close the file
-    fclose(f);
-
-    printf("Done!\n");
+    printf("xxx Worker %d / %d\n", worker_id, n_workers);
   }
+
+  MPI_File_close(&fh);
 
   MPI_Finalize(); // Call once
 

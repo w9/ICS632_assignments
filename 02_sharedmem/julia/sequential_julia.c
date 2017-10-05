@@ -231,14 +231,26 @@ int main(int argc, char **argv) {
 
     MPI_File_seek(fh, 54 + begin * width * 3, MPI_SEEK_SET);
 
+    MPI_Offset offset;
+    MPI_File_get_position(fh, &offset);
+    printf("___ Worker %d / %d: offset = %lld\n", worker_id, n_workers, offset);
+
     // Write the pixels
     for (y = 0; y < height; y++) {
       for (x = 0; x < width; x++) {
         MPI_File_write(fh, &(pixels[y * 3 * width + x * 3]), 3, MPI_CHAR, MPI_STATUS_IGNORE);
+
+        MPI_Offset offset;
+        MPI_File_get_position(fh, &offset);
+        printf("___ Worker %d / %d: offset = %lld\n", worker_id, n_workers, offset);
       }
       // padding in case of an even number of pixels per row
       unsigned char padding[3] = {0, 0, 0};
       MPI_File_write(fh, padding, ((width * 3) % 4), MPI_CHAR, MPI_STATUS_IGNORE);
+
+      MPI_Offset offset;
+      MPI_File_get_position(fh, &offset);
+      printf("___ Worker %d / %d: ! offset = %lld\n", worker_id, n_workers, offset);
     }
 
     printf("xxx Worker %d / %d\n", worker_id, n_workers);

@@ -1,4 +1,0 @@
-# HOSTNAME = host
-openmp,n_threads,par_loop,rep,elapsed_time,result
-False,1,0,1,1.5946594141423702,1224947712
-False,1,0,2,1.47723132930696,1224947712

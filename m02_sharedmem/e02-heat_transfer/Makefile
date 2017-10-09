@@ -1,9 +1,14 @@
-N = 20000
-NUM_THREADS = 4
+N = 2000
+NUM_THREADS = 3
 DEBUG = 1
+NUM_ITERS = 1000
+BLOCK_SIZE = 200
+
+b:
+	gcc -Ofast -DDEBUG=${DEBUG} -DALGO=2 -DBLOCK_SIZE=${BLOCK_SIZE} -DN=${N} -DNUM_ITERS=${NUM_ITERS} -DNUM_THREADS=${NUM_THREADS} -fopenmp -o main main.c && time ./main
 
 par:
-	gcc -Ofast -DDEBUG=${DEBUG} -DALGO=1 -DN=${N} -DNUM_THREADS=${NUM_THREADS} -fopenmp -o main main.c && env ./main
+	gcc -Ofast -DDEBUG=${DEBUG} -DALGO=1 -DBLOCK_SIZE=${BLOCK_SIZE} -DN=${N} -DNUM_ITERS=${NUM_ITERS} -DNUM_THREADS=${NUM_THREADS} -fopenmp -o main main.c && time ./main
 
 seq:
-	gcc -Ofast -DDEBUG=${DEBUG} -DALGO=0 -DN=${N} -o main main.c && ./main
+	gcc -Ofast -DDEBUG=${DEBUG} -DALGO=0 -DBLOCK_SIZE=${BLOCK_SIZE} -DN=${N} -DNUM_ITERS=${NUM_ITERS} -o main main.c && time ./main

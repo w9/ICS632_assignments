@@ -32,8 +32,10 @@ This means that we could have the outer loop iterate through diagnals, and the i
 loop iterate within a diagnal. This frees the inner loop from data depenency issues
 and allows for its parallelization.
 
+
 **Determine and use a number of iterations that makes the original program run
 in about 10 seconds. Plot the performance of your OpenMP program vs. the number
 of threads (from 1 to 20 threads). On that same plot also plot the performance
 of the original sequential program (as a straight line). What do you observe?
 Any explanation? Should we be happy with this performance/efficiency?**
+

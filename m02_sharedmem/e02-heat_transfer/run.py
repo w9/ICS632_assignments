@@ -9,7 +9,7 @@ from timeit import default_timer as timer
 default_params = {
     'N': 12000,
     'DEBUG': 0,
-    'NUM_ITERS': 2,
+    'NUM_ITERS': 20,
     'BLOCK_SIZE': 200,
 }
 
@@ -67,7 +67,7 @@ with open('results_{}_{}.csv'.format(
         environ.get('HOSTNAME', 'host'),
         datetime.now().strftime('%y%m%d_%H%M%S')), 'w') as f:
 
-    wr = csv.DictWriter(f, ['ALGO', 'NUM_THREADS', 'RUNNING_TIME', 'OUTPUT'])
+    wr = csv.DictWriter(f, ['ALGO', 'NUM_THREADS', 'REP', 'RUNNING_TIME', 'OUTPUT'])
 
     f.write('# HOSTNAME={}\n'.format(environ.get('HOSTNAME', 'host')))
 

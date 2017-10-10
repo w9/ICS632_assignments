@@ -1,0 +1,13 @@
+ERROR: ld.so: object 'libcr_run.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+Traceback (most recent call last):
+  File "run.py", line 83, in <module>
+    params.update(shell('./main'))
+  File "run.py", line 48, in shell
+    cmdp = run(cmd.split(), stdout=PIPE, stderr=PIPE)
+  File "/home/zhu2/.linuxbrew/Cellar/python3/3.6.2/lib/python3.6/subprocess.py", line 403, in run
+    with Popen(*popenargs, **kwargs) as process:
+  File "/home/zhu2/.linuxbrew/Cellar/python3/3.6.2/lib/python3.6/subprocess.py", line 707, in __init__
+    restore_signals, start_new_session)
+  File "/home/zhu2/.linuxbrew/Cellar/python3/3.6.2/lib/python3.6/subprocess.py", line 1333, in _execute_child
+    raise child_exception_type(errno_num, err_msg)
+FileNotFoundError: [Errno 2] No such file or directory: './main'

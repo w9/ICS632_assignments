@@ -142,7 +142,7 @@ int main() {
         }
       }
 
-      int baseline = N / BLOCK_SIZE * BLOCK_SIZE;
+      int baseline = (N - 1) / BLOCK_SIZE * BLOCK_SIZE;
 
       for (bk = BLOCK_SIZE; bk < N; bk += BLOCK_SIZE) {
 #pragma omp for

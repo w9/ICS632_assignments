@@ -1,0 +1,3 @@
+# HOSTNAME = host
+openmp,n_threads,par_loop,rep,elapsed_time,result
+False,1,0,1,5.569846064783633,2133635512

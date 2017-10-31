@@ -223,4 +223,14 @@ bcast on standard platforms, and therefore using the default is good enough.
 Running on the Cray
 ===================
 
+The following results are based on running the program on 2 nodes, with a total of 40 tasks.
+The result time is based on the `MPI_Wtime` calls.
 
+ | Default bcast       |   49.094 |
+ | Naive bcast         |   55.939 |
+ | Async ring bcast    | segfault |
+ | Async bintree bcast | segfault |
+
+Despite my effort, I couldn't find the reason why the latter two methods always gave segfault
+when run on CRAY. Reducing the data size didn't help. I used `openmpi/1.10.0` because the
+mpich on CRAY is broken.

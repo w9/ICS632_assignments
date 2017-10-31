@@ -1,2 +1,3 @@
-smpicc -o main main.c && smpirun --cfg=smpi/bcast:mpich -np 5 -platform ./bintree_5.xml -hostfile hostfile_5.txt ./main naive_bcast -c 1000000
-[smpirun] ** error: the file './bintree_5.xml' does not exist. Aborting.
+--------------------------------------------------------------------------
+mpirun noticed that process rank 31 with PID 0 on node prod2-0013 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------

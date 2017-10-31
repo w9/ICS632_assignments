@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-/* #include <mpi.h> */
+#include <mpi.h>
 /* #include "/usr/lib/openmpi/include/mpi.h" */
-#include "/home/xzhu/.local/include/smpi/mpi.h"
+/* #include "/home/xzhu/.local/include/smpi/mpi.h" */
 #include <string.h>
 
 // See for the (bad) default random number generator
@@ -217,7 +217,7 @@ int main(int argc, char *argv[])
       if (i > 0) {
         MPI_Wait(&request, &status);
       }
-      if (rank < num_procs - 1) {
+      if (rank + 1 < num_procs) {
         MPI_Isend(buffer + i, j, MPI_CHAR, rank + 1, 0, MPI_COMM_WORLD, &request);
       }
     }
@@ -234,8 +234,10 @@ int main(int argc, char *argv[])
         MPI_Wait(&requestl, &status);
         MPI_Wait(&requestr, &status);
       }
-      if (rank < num_procs - 1) {
+      if ((rank + 1) * 2 - 1 < num_procs) {
         MPI_Isend(buffer + i, j, MPI_CHAR, (rank + 1) * 2 - 1, 0, MPI_COMM_WORLD, &requestl);
+      }
+      if ((rank + 1) * 2 < num_procs) {
         MPI_Isend(buffer + i, j, MPI_CHAR, (rank + 1) * 2, 0, MPI_COMM_WORLD, &requestr);
       }
     }

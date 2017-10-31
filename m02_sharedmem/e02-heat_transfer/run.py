@@ -20,7 +20,7 @@ def build_gcc_cmd(p):
 
     defines = ' '.join(['-D{}={}'.format(k, v) for k, v in params.items()])
 
-    cmd = 'gcc -Ofast -fopenmp {} -o main main.c'.format(defines)
+    cmd = 'icc -Ofast -openmp {} -o main main.c'.format(defines)
 
     return cmd
 
@@ -77,7 +77,7 @@ with open('results_{}_{}.csv'.format(
     wr.writeheader()
 
     for params in gen_params():
-        for rep in range(10):
+        for rep in range(1):
             shell(build_gcc_cmd(params))
             params.update({'REP': rep + 1})
             params.update(shell('./main'))

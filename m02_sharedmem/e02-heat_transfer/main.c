@@ -117,128 +117,57 @@ int main() {
     }
 #endif
 
-    int bi, bj;
+    int num_blocks = (N - 1) / BLOCK_SIZE + 1;
+    int bi, bj, bk;
     for (iter = 0; iter < NUM_ITERS; iter++) {
-      for (bi = 0; bi < N; bi += BLOCK_SIZE) {
-        for (bj = 0; bj < N; bj += BLOCK_SIZE) {
-          int ni = (BLOCK_SIZE <= N - bi) ? BLOCK_SIZE : N - bi;
-          int nj = (BLOCK_SIZE <= N - bj) ? BLOCK_SIZE : N - bj;
+      for (bk = 0; bk < N; bk += BLOCK_SIZE) {
+#pragma omp for
+        for (bj = 0; bj < bk + 1; bj += BLOCK_SIZE) {
+          // need to first shift by one
+          bi = bk - bj;
 
 #if DEBUG >= 2
 #pragma omp critical
           {
-            print_diagram("b", iam, np);
-            fprintf(stderr, "calculate block bi=%d bj=%d ni=%d nj=%d\n", bi, bj, ni, nj);
+            print_diagram("d", iam, np);
+            fprintf(stderr, "block bi=%d bj=%d\n", bi, bj);
           }
 #endif
 
-          if (ni == nj) {
-            for (k = bi + bj + 1; k < bi + bj + ni; k++) {
-#pragma omp for
-              for (j = bj + 1; j < - bi + k + 1; j++) {
-                i = k - j + 1;
-#if DEBUG >= 2
-#pragma omp critical
-                {
-                  print_diagram("b", iam, np);
-                  fprintf(stderr, "calculate cell i=%d j=%d k=%d\n", i, j, k);
-                }
-#endif
-
-                A[i][j] =
-                  (3 * A[i - 1][j] + A[i + 1][j] + 3 * A[i][j - 1] + A[i][j + 1]) / 4;
-              }
-            }
-
-            for (k = bi + bj + ni; k < bi + bj + 2 * ni; k++) {
-#pragma omp for
-              for (j = - bi + k - ni + 1; j < bj + ni + 1; j++) {
-                i = k - j + 1;
-
-#if DEBUG >= 2
-#pragma omp critical
-                {
-                  print_diagram("c", iam, np);
-                  fprintf(stderr, "calculate cell i=%d j=%d k=%d\n", i, j, k);
-                }
-#endif
-                A[i][j] =
-                  (3 * A[i - 1][j] + A[i + 1][j] + 3 * A[i][j - 1] + A[i][j + 1]) / 4;
-              }
-            }
-
-          } else if (ni < nj) {
-            for (k = bi + bj + 1; k < bi + bj + ni; k++) {
-#pragma omp for
-              for (j = bj + 1; j < - bi + k + 1; j++) {
-                i = k - j + 1;
-                A[i][j] =
-                  (3 * A[i - 1][j] + A[i + 1][j] + 3 * A[i][j - 1] + A[i][j + 1]) / 4;
-              }
-            }
-
-            for (k = bi + bj + ni; k < bi + bj + nj; k++) {
-#pragma omp for
-              for (j = - bi + k - ni + 1; j < - bi + k + 1; j++) {
-                i = k - j + 1;
-                A[i][j] =
-                  (3 * A[i - 1][j] + A[i + 1][j] + 3 * A[i][j - 1] + A[i][j + 1]) / 4;
-              }
-            }
-
-            for (k = bi + bj + nj; k < bi + bj + ni + nj; k++) {
-#pragma omp for
-              for (j = - bi + k - ni + 1; j < bj + nj + 1; j++) {
-                i = k - j + 1;
-                A[i][j] =
-                  (3 * A[i - 1][j] + A[i + 1][j] + 3 * A[i][j - 1] + A[i][j + 1]) / 4;
-              }
-            }
-          } else {
-            for (k = bi + bj + 1; k < bi + bj + nj; k++) {
-#pragma omp for
-              for (j = bj + 1; j < - bi + k + 1; j++) {
-                i = k - j + 1;
-                A[i][j] =
-                  (3 * A[i - 1][j] + A[i + 1][j] + 3 * A[i][j - 1] + A[i][j + 1]) / 4;
-              }
-            }
-
-            for (k = bi + bj + nj; k < bi + bj + ni; k++) {
-#pragma omp for
-              for (j = bj + 1; j < bj + nj + 1; j++) {
-                i = k - j + 1;
-                A[i][j] =
-                  (3 * A[i - 1][j] + A[i + 1][j] + 3 * A[i][j - 1] + A[i][j + 1]) / 4;
-              }
-            }
-
-            for (k = bi + bj + ni; k < bi + bj + ni + nj; k++) {
-#pragma omp for
-              for (j = - bi + k - ni + 1; j < bj + nj + 1; j++) {
-                i = k - j + 1;
-                A[i][j] =
-                  (3 * A[i - 1][j] + A[i + 1][j] + 3 * A[i][j - 1] + A[i][j + 1]) / 4;
-              }
+          for (i = bi + 1; i < bi + BLOCK_SIZE + 1 && i < N + 1; i++) {
+            for (j = bj + 1; j < bj + BLOCK_SIZE + 1 && j < N + 1; j++) {
+              A[i][j] = (3 * A[i - 1][j] + A[i + 1][j] + 3 * A[i][j - 1] + A[i][j + 1]) / 4;
             }
           }
+        }
+      }
+
+      int baseline = (N - 1) / BLOCK_SIZE * BLOCK_SIZE;
+
+      for (bk = BLOCK_SIZE; bk < N; bk += BLOCK_SIZE) {
+#pragma omp for
+        for (bj = bk; bj < N; bj += BLOCK_SIZE) {
+          // need to first shift by one
+          bi = baseline + bk - bj;
 
 #if DEBUG >= 2
 #pragma omp critical
           {
-            print_diagram("b", iam, np);
-            fprintf(stderr, "end of block.\n");
+            print_diagram("d", iam, np);
+            fprintf(stderr, "block bi=%d bj=%d\n", bi, bj);
           }
 #endif
 
-
+          for (i = bi + 1; i < bi + BLOCK_SIZE + 1 && i < N + 1; i++) {
+            for (j = bj + 1; j < bj + BLOCK_SIZE + 1 && j < N + 1; j++) {
+              A[i][j] = (3 * A[i - 1][j] + A[i + 1][j] + 3 * A[i][j - 1] + A[i][j + 1]) / 4;
+            }
+          }
         }
       }
     }
   }
 #endif
-
-
 
 
   int hash = 0;

@@ -1,0 +1,179 @@
+<?xml version='1.0'?>
+<!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid/simgrid.dtd">
+<platform version="4.1">
+  <actor host="host-0.hawaii.edu" function="0"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="0"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-1.hawaii.edu" function="1"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="1"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-2.hawaii.edu" function="2"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="2"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-3.hawaii.edu" function="3"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="3"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-4.hawaii.edu" function="4"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="4"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-5.hawaii.edu" function="5"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="5"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-6.hawaii.edu" function="6"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="6"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-7.hawaii.edu" function="7"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="7"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-8.hawaii.edu" function="8"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="8"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-9.hawaii.edu" function="9"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="9"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-10.hawaii.edu" function="10"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="10"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-11.hawaii.edu" function="11"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="11"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-12.hawaii.edu" function="12"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="12"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-13.hawaii.edu" function="13"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="13"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-14.hawaii.edu" function="14"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="14"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-15.hawaii.edu" function="15"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="15"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-16.hawaii.edu" function="16"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="16"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-17.hawaii.edu" function="17"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="17"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-18.hawaii.edu" function="18"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="18"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-19.hawaii.edu" function="19"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="19"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-20.hawaii.edu" function="20"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="20"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-21.hawaii.edu" function="21"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="21"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-22.hawaii.edu" function="22"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="22"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-23.hawaii.edu" function="23"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="23"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-24.hawaii.edu" function="24"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="24"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-25.hawaii.edu" function="25"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="25"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-26.hawaii.edu" function="26"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="26"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-27.hawaii.edu" function="27"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="27"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-28.hawaii.edu" function="28"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="28"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-29.hawaii.edu" function="29"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="29"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-30.hawaii.edu" function="30"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="30"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-31.hawaii.edu" function="31"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="31"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-32.hawaii.edu" function="32"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="32"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-33.hawaii.edu" function="33"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="33"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+  <actor host="host-34.hawaii.edu" function="34"> <!-- function name used only for logging -->
+    <argument value="1"/> <!-- instance -->
+    <argument value="34"/> <!-- rank -->
+<argument value="naive_bcast"/> <argument value="-c"/> <argument value="500000"/>
+  </actor>
+</platform>

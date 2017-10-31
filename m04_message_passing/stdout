@@ -1,0 +1,2 @@
+smpicc -o main main.c && smpirun --cfg=smpi/bcast:mpich -np 5 -platform ./bintree_5.xml -hostfile hostfile_5.txt ./main naive_bcast -c 1000000
+[smpirun] ** error: the file './bintree_5.xml' does not exist. Aborting.

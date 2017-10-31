@@ -9,7 +9,7 @@ from timeit import default_timer as timer
 default_params = {
     'N': 12000,
     'DEBUG': 0,
-    'NUM_ITERS': 20,
+    'NUM_ITERS': 30,
     'BLOCK_SIZE': 200,
 }
 

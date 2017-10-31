@@ -1,0 +1,15 @@
+# HOSTNAME=unknown
+# N_CORES=5
+# ALGO=asynchronous_pipelined_ring_bcast
+# CHUNK_SIZE=1000000
+# LATENCY=10
+# NETWORK_STRUCTURE=ring
+# OUTPUT_TIME=1
+N_CORES,ALGO,CHUNK_SIZE,LATENCY,NETWORK_STRUCTURE,OUTPUT_TIME,OUTPUT,RUNNING_TIME
+50,asynchronous_pipelined_ring_bcast,100000,10,ring,1,0.228,14.29987916443497
+50,asynchronous_pipelined_ring_bcast,500000,10,ring,1,0.141,14.193825342692435
+50,asynchronous_pipelined_ring_bcast,1000000,10,ring,1,0.146,14.190584562718868
+50,asynchronous_pipelined_ring_bcast,5000000,10,ring,1,0.300,14.047118773683906
+50,asynchronous_pipelined_ring_bcast,10000000,10,ring,1,0.502,14.042365667410195
+50,asynchronous_pipelined_ring_bcast,50000000,10,ring,1,2.134,14.020079081878066
+50,asynchronous_pipelined_ring_bcast,100000000,10,ring,1,4.175,13.966684557497501

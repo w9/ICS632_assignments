@@ -43,7 +43,7 @@ int main() {
       C[i][j] = 0;
     }
 
-#pragma omp parallel shared(A, B, C) private(i, j, k)
+#pragma omp parallel shared(A, B, C) private(i, j, k) num_threads(N_THREADS)
   {
 
 #ifdef _OPENMP

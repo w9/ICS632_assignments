@@ -3,78 +3,63 @@ from os import environ
 from datetime import datetime
 # import re
 import csv
-# from colors import color
+from colors import color
 from timeit import default_timer as timer
 
-N = 2400
-# N = 10
-COMPILER = environ.get('COMPILER', 'gcc')
-OPENMP_OPT = '-openmp' if COMPILER == 'icc' else '-fopenmp'
+default_params = {
+    'N': 2400,
+    'PAR_LOOP': 0,
+}
 
 
-def shell(cmd, time=False, debug=False, stdout=True, stderr=True):
-    # print(color(cmd, fg='blue'))
-
-    if time:
-        tic = timer()
-
+def shell(cmd):
+    print(color(cmd, fg='blue'))
+    tic = timer()
     cmdp = run(cmd.split(), stdout=PIPE, stderr=PIPE)
+    toc = timer()
+    print('Seconds elapsed: {}'.format(toc - tic))
 
-    if time:
-        toc = timer()
-        print('Seconds elapsed: {}'.format(toc - tic))
+    stdout = format(cmdp.stdout.decode('utf-8'))
+    stderr = cmdp.stderr.decode('utf-8')
 
-    if stdout:
-        print('Stdout: {}'.format(cmdp.stdout.decode('utf-8')))
-
-    if stderr:
-        print('Stderr: {}'.format(cmdp.stderr.decode('utf-8')))
-
+    print('Stdout: {}'.format(stdout))
+    print('Stderr: {}'.format(stderr))
     print('')
 
-    if time:
-        return (cmdp.stdout.decode('utf-8'), toc - tic)
+    return {
+        'RUNNING_TIME': toc - tic,
+        'STDOUT': stdout,
+    }
 
 
-def perf(openmp, n_threads_arr=[1], par_loop=0, log_file=None):
-    if openmp:
-        title = 'OpenMP - loop {} parallelized'.format(par_loop)
-    else:
-        title = 'Serial'
-
-    # print(color('----------- {} -----------'.format(title), fg='yellow'))
-
-    shell('{COMPILER} -o main -Ofast {OPENMP} -DN={N} -DPAR_LOOP={PAR_LOOP} ./main.c'
-          .format(COMPILER=COMPILER, OPENMP=OPENMP_OPT if openmp else '', N=N, PAR_LOOP=par_loop))
-
-    for n_threads in n_threads_arr:
-        for rep in range(10):
-            print('rep: {}'.format(rep))
-            result, elapsed_time = shell(
-                'env OMP_NUM_THREADS={} ./main'.format(n_threads), time=True)
-
-            record = {
-                'openmp': openmp,
-                'n_threads': n_threads,
-                'par_loop': par_loop,
-                'rep': rep + 1,
-                'elapsed_time': elapsed_time,
-                'result': result,
-            }
-
-            wr.writerow(record)
+def perf(params):
+    dargs = ' '.join(['-D{}={}'.format(k, v) for k, v in params.items()])
+    shell('gcc -o main -Ofast -fopenmp {} ./main.c'.format(dargs))
+    return shell('env ./main')
 
 
-with open('results_{}_{}.csv'.format(environ.get('HOSTNAME', 'host'),
-                                     datetime.now().strftime('%y%m%d_%H%M%S')),
-          'w') as f:
+with open('results_{}_{}.csv'.format(
+        environ.get('HOSTNAME', 'host'),
+        datetime.now().strftime('%y%m%d_%H%M%S')), 'w') as f:
 
-    wr = csv.DictWriter(f, ['openmp', 'n_threads', 'par_loop', 'rep', 'elapsed_time', 'result'])
-    f.write('# HOSTNAME = {}\n'.format(environ.get('HOSTNAME', 'host')))
+    params_list = [{
+        'REP': x,
+        'N_THREADS': y + 1,
+    # } for x in range(10) for y in range(20)]
+    } for x in range(10) for y in range(20)]
+
+    params = params_list[0]
+    row = default_params.copy()
+    row.update(params)
+    row.update(perf(row))
+
+    wr = csv.DictWriter(f, row.keys())
     wr.writeheader()
+    wr.writerow(row)
 
-    perf(False)
-
-    for par_loop in [0, 1, 2]:
-        # for n_threads in [x + 1 for x in range(20)]:
-        perf(True, [x + 1 for x in range(20)], par_loop)
+    for params in params_list[1:]:
+        row = default_params.copy()
+        row.update(params)
+        row.update(perf(row))
+        wr.writerow(row)
+        f.flush()

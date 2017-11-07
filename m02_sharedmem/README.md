@@ -4,6 +4,12 @@
 Exercise 1
 ==========
 
+**Produce 3 versions of the program, where in each version you parallelize one of
+the three loops using an OpenMP pragma (taking care of declaring the correct
+variables private or shared). Name your source file exercise1.c.**
+
+
+
 Exercise 2
 ==========
 

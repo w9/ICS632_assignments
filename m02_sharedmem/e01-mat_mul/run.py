@@ -8,7 +8,6 @@ from timeit import default_timer as timer
 
 default_params = {
     'N': 2400,
-    'PAR_LOOP': 0,
 }
 
 
@@ -45,8 +44,9 @@ with open('results_{}_{}.csv'.format(
     params_list = [{
         'REP': x,
         'N_THREADS': y + 1,
+        'PAR_LOOP': z,
     # } for x in range(10) for y in range(20)]
-    } for x in range(10) for y in range(20)]
+    } for x in range(10) for y in range(20) for z in range(3)]
 
     params = params_list[0]
     row = default_params.copy()

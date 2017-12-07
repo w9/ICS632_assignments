@@ -195,6 +195,8 @@ def run_bh_tsne(data, no_dims=2, perplexity=50, theta=0.5, randseed=-1, verbose=
     #   directory to work in so we don't clutter the filesystem
     tmp_dir_path = mkdtemp()
 
+    print('path = {}'.format(tmp_dir_path))
+
     # Load data in forked process to free memory for actual bh_tsne calculation
     child_pid = os.fork()
     if child_pid == 0:
@@ -216,7 +218,7 @@ def run_bh_tsne(data, no_dims=2, perplexity=50, theta=0.5, randseed=-1, verbose=
             for r in result:
                 sample_res.append(r)
             res.append(sample_res)
-        rmtree(tmp_dir_path)
+        # rmtree(tmp_dir_path)
         return np.asarray(res, dtype='float64')
 
 

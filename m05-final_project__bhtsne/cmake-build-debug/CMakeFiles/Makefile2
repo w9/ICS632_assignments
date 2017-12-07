@@ -54,10 +54,47 @@ RM = /opt/clion/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xzhu/CLionProjects/bhtsne
+CMAKE_SOURCE_DIR = /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xzhu/CLionProjects/bhtsne/cmake-build-debug
+CMAKE_BINARY_DIR = /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug
+
+#=============================================================================
+# Target rules for target CMakeFiles/testapp.dir
+
+# All Build rule for target.
+CMakeFiles/testapp.dir/all:
+	$(MAKE) -f CMakeFiles/testapp.dir/build.make CMakeFiles/testapp.dir/depend
+	$(MAKE) -f CMakeFiles/testapp.dir/build.make CMakeFiles/testapp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target testapp"
+.PHONY : CMakeFiles/testapp.dir/all
+
+# Include target in all.
+all: CMakeFiles/testapp.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/testapp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/testapp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/testapp.dir/rule
+
+# Convenience name for target.
+testapp: CMakeFiles/testapp.dir/rule
+
+.PHONY : testapp
+
+# clean rule for target.
+CMakeFiles/testapp.dir/clean:
+	$(MAKE) -f CMakeFiles/testapp.dir/build.make CMakeFiles/testapp.dir/clean
+.PHONY : CMakeFiles/testapp.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/testapp.dir/clean
+
+.PHONY : clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/bh_tsne.dir
@@ -66,7 +103,7 @@ CMAKE_BINARY_DIR = /home/xzhu/CLionProjects/bhtsne/cmake-build-debug
 CMakeFiles/bh_tsne.dir/all:
 	$(MAKE) -f CMakeFiles/bh_tsne.dir/build.make CMakeFiles/bh_tsne.dir/depend
 	$(MAKE) -f CMakeFiles/bh_tsne.dir/build.make CMakeFiles/bh_tsne.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target bh_tsne"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target bh_tsne"
 .PHONY : CMakeFiles/bh_tsne.dir/all
 
 # Include target in all.
@@ -76,9 +113,9 @@ all: CMakeFiles/bh_tsne.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/bh_tsne.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/bh_tsne.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/bh_tsne.dir/rule
 
 # Convenience name for target.

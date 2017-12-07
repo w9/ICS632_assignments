@@ -1,4 +1,4 @@
-# Install script for directory: /home/xzhu/CLionProjects/bhtsne
+# Install script for directory: /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

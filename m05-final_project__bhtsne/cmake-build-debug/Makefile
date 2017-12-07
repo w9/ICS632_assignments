@@ -48,10 +48,10 @@ RM = /opt/clion/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xzhu/CLionProjects/bhtsne
+CMAKE_SOURCE_DIR = /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xzhu/CLionProjects/bhtsne/cmake-build-debug
+CMAKE_BINARY_DIR = /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles /home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -109,6 +109,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named testapp
+
+# Build rule for target.
+testapp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 testapp
+.PHONY : testapp
+
+# fast build rule for target.
+testapp/fast:
+	$(MAKE) -f CMakeFiles/testapp.dir/build.make CMakeFiles/testapp.dir/build
+.PHONY : testapp/fast
 
 #=============================================================================
 # Target rules for targets named bh_tsne
@@ -149,6 +162,33 @@ sptree.s: sptree.cpp.s
 sptree.cpp.s:
 	$(MAKE) -f CMakeFiles/bh_tsne.dir/build.make CMakeFiles/bh_tsne.dir/sptree.cpp.s
 .PHONY : sptree.cpp.s
+
+testapp.o: testapp.cpp.o
+
+.PHONY : testapp.o
+
+# target to build an object file
+testapp.cpp.o:
+	$(MAKE) -f CMakeFiles/testapp.dir/build.make CMakeFiles/testapp.dir/testapp.cpp.o
+.PHONY : testapp.cpp.o
+
+testapp.i: testapp.cpp.i
+
+.PHONY : testapp.i
+
+# target to preprocess a source file
+testapp.cpp.i:
+	$(MAKE) -f CMakeFiles/testapp.dir/build.make CMakeFiles/testapp.dir/testapp.cpp.i
+.PHONY : testapp.cpp.i
+
+testapp.s: testapp.cpp.s
+
+.PHONY : testapp.s
+
+# target to generate assembly for a file
+testapp.cpp.s:
+	$(MAKE) -f CMakeFiles/testapp.dir/build.make CMakeFiles/testapp.dir/testapp.cpp.s
+.PHONY : testapp.cpp.s
 
 tsne.o: tsne.cpp.o
 
@@ -211,11 +251,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... testapp"
 	@echo "... edit_cache"
 	@echo "... bh_tsne"
 	@echo "... sptree.o"
 	@echo "... sptree.i"
 	@echo "... sptree.s"
+	@echo "... testapp.o"
+	@echo "... testapp.i"
+	@echo "... testapp.s"
 	@echo "... tsne.o"
 	@echo "... tsne.i"
 	@echo "... tsne.s"

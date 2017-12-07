@@ -6,5 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/xzhu/CLionProjects/bhtsne/fast_tsne.m
+/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/testapp.cpp
+cstdio
+-
+omp.h
+-
 

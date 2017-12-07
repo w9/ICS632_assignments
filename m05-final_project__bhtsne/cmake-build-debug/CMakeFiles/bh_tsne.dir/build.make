@@ -43,10 +43,10 @@ RM = /opt/clion/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xzhu/CLionProjects/bhtsne
+CMAKE_SOURCE_DIR = /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xzhu/CLionProjects/bhtsne/cmake-build-debug
+CMAKE_BINARY_DIR = /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/bh_tsne.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/bh_tsne.dir/flags.make
 
 CMakeFiles/bh_tsne.dir/sptree.cpp.o: CMakeFiles/bh_tsne.dir/flags.make
 CMakeFiles/bh_tsne.dir/sptree.cpp.o: ../sptree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/bh_tsne.dir/sptree.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bh_tsne.dir/sptree.cpp.o -c /home/xzhu/CLionProjects/bhtsne/sptree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/bh_tsne.dir/sptree.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bh_tsne.dir/sptree.cpp.o -c /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/sptree.cpp
 
 CMakeFiles/bh_tsne.dir/sptree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bh_tsne.dir/sptree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xzhu/CLionProjects/bhtsne/sptree.cpp > CMakeFiles/bh_tsne.dir/sptree.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/sptree.cpp > CMakeFiles/bh_tsne.dir/sptree.cpp.i
 
 CMakeFiles/bh_tsne.dir/sptree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bh_tsne.dir/sptree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xzhu/CLionProjects/bhtsne/sptree.cpp -o CMakeFiles/bh_tsne.dir/sptree.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/sptree.cpp -o CMakeFiles/bh_tsne.dir/sptree.cpp.s
 
 CMakeFiles/bh_tsne.dir/sptree.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/bh_tsne.dir/sptree.cpp.o.provides.build: CMakeFiles/bh_tsne.dir/sptre
 
 CMakeFiles/bh_tsne.dir/tsne.cpp.o: CMakeFiles/bh_tsne.dir/flags.make
 CMakeFiles/bh_tsne.dir/tsne.cpp.o: ../tsne.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/bh_tsne.dir/tsne.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bh_tsne.dir/tsne.cpp.o -c /home/xzhu/CLionProjects/bhtsne/tsne.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/bh_tsne.dir/tsne.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bh_tsne.dir/tsne.cpp.o -c /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne.cpp
 
 CMakeFiles/bh_tsne.dir/tsne.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bh_tsne.dir/tsne.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xzhu/CLionProjects/bhtsne/tsne.cpp > CMakeFiles/bh_tsne.dir/tsne.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne.cpp > CMakeFiles/bh_tsne.dir/tsne.cpp.i
 
 CMakeFiles/bh_tsne.dir/tsne.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bh_tsne.dir/tsne.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xzhu/CLionProjects/bhtsne/tsne.cpp -o CMakeFiles/bh_tsne.dir/tsne.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne.cpp -o CMakeFiles/bh_tsne.dir/tsne.cpp.s
 
 CMakeFiles/bh_tsne.dir/tsne.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/bh_tsne.dir/tsne.cpp.o.provides.build: CMakeFiles/bh_tsne.dir/tsne.cp
 
 CMakeFiles/bh_tsne.dir/tsne_main.cpp.o: CMakeFiles/bh_tsne.dir/flags.make
 CMakeFiles/bh_tsne.dir/tsne_main.cpp.o: ../tsne_main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/bh_tsne.dir/tsne_main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bh_tsne.dir/tsne_main.cpp.o -c /home/xzhu/CLionProjects/bhtsne/tsne_main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/bh_tsne.dir/tsne_main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bh_tsne.dir/tsne_main.cpp.o -c /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne_main.cpp
 
 CMakeFiles/bh_tsne.dir/tsne_main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bh_tsne.dir/tsne_main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xzhu/CLionProjects/bhtsne/tsne_main.cpp > CMakeFiles/bh_tsne.dir/tsne_main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne_main.cpp > CMakeFiles/bh_tsne.dir/tsne_main.cpp.i
 
 CMakeFiles/bh_tsne.dir/tsne_main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bh_tsne.dir/tsne_main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xzhu/CLionProjects/bhtsne/tsne_main.cpp -o CMakeFiles/bh_tsne.dir/tsne_main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne_main.cpp -o CMakeFiles/bh_tsne.dir/tsne_main.cpp.s
 
 CMakeFiles/bh_tsne.dir/tsne_main.cpp.o.requires:
 
@@ -143,7 +143,7 @@ bh_tsne_EXTERNAL_OBJECTS =
 ../bh_tsne: CMakeFiles/bh_tsne.dir/tsne_main.cpp.o
 ../bh_tsne: CMakeFiles/bh_tsne.dir/build.make
 ../bh_tsne: CMakeFiles/bh_tsne.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../bh_tsne"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../bh_tsne"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bh_tsne.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -162,6 +162,6 @@ CMakeFiles/bh_tsne.dir/clean:
 .PHONY : CMakeFiles/bh_tsne.dir/clean
 
 CMakeFiles/bh_tsne.dir/depend:
-	cd /home/xzhu/CLionProjects/bhtsne/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/xzhu/CLionProjects/bhtsne /home/xzhu/CLionProjects/bhtsne /home/xzhu/CLionProjects/bhtsne/cmake-build-debug /home/xzhu/CLionProjects/bhtsne/cmake-build-debug /home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles/bh_tsne.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug /home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles/bh_tsne.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/bh_tsne.dir/depend
 

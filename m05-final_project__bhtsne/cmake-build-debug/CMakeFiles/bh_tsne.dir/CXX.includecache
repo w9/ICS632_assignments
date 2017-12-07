@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/xzhu/CLionProjects/bhtsne/sptree.cpp
+/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/sptree.cpp
 math.h
 -
 float.h
@@ -18,11 +18,11 @@ stdio.h
 cmath
 -
 sptree.h
-/home/xzhu/CLionProjects/bhtsne/sptree.h
+/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/sptree.h
 
-/home/xzhu/CLionProjects/bhtsne/sptree.h
+/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/sptree.h
 
-/home/xzhu/CLionProjects/bhtsne/tsne.cpp
+/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne.cpp
 cfloat
 -
 cmath
@@ -34,23 +34,23 @@ cstdio
 ctime
 -
 vptree.h
-/home/xzhu/CLionProjects/bhtsne/vptree.h
+/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/vptree.h
 sptree.h
-/home/xzhu/CLionProjects/bhtsne/sptree.h
+/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/sptree.h
 tsne.h
-/home/xzhu/CLionProjects/bhtsne/tsne.h
+/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne.h
 
-/home/xzhu/CLionProjects/bhtsne/tsne.h
+/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne.h
 
-/home/xzhu/CLionProjects/bhtsne/tsne_main.cpp
+/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne_main.cpp
 cstdlib
 -
 cstdio
 -
 tsne.h
-/home/xzhu/CLionProjects/bhtsne/tsne.h
+/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne.h
 
-/home/xzhu/CLionProjects/bhtsne/vptree.h
+/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/vptree.h
 stdlib.h
 -
 algorithm

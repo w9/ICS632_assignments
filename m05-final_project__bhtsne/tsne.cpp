@@ -241,7 +241,11 @@ TSNE::computeGradient(double *P, unsigned int *inp_row_P, unsigned int *inp_col_
         exit(1);
     }
     tree->computeEdgeForces(inp_row_P, inp_col_P, inp_val_P, N, pos_f);
-    for (int n = 0; n < N; n++) tree->computeNonEdgeForces(n, theta, neg_f + n * D, &sum_Q);
+    for (int n = 0; n < N; n++) {
+#pragma omp parallel
+#pragma omp single
+        tree->computeNonEdgeForces(n, theta, neg_f + n * D, &sum_Q);
+    }
 
     // Compute final t-SNE gradient
     for (int i = 0; i < N * D; i++) {

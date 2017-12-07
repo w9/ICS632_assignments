@@ -8,37 +8,81 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/xzhu/CLionProjects/bhtsne/cmake-build-debug"/>
+				<Option working_dir="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/xzhu/CLionProjects/bhtsne/cmake-build-debug"/>
+				<Option working_dir="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="testapp">
+				<Option output="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/testapp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 testapp"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="testapp/fast">
+				<Option output="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/testapp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="../"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 testapp/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/xzhu/CLionProjects/bhtsne/cmake-build-debug"/>
+				<Option working_dir="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="bh_tsne">
-				<Option output="/home/xzhu/CLionProjects/bhtsne/bh_tsne" prefix_auto="0" extension_auto="0"/>
+				<Option output="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/bh_tsne" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="../"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -53,14 +97,14 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 bh_tsne"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 bh_tsne"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="bh_tsne/fast">
-				<Option output="/home/xzhu/CLionProjects/bhtsne/bh_tsne" prefix_auto="0" extension_auto="0"/>
+				<Option output="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/bh_tsne" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="../"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -75,29 +119,32 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 bh_tsne/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 bh_tsne/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/xzhu/CLionProjects/bhtsne/sptree.cpp">
+		<Unit filename="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/sptree.cpp">
 			<Option target="bh_tsne"/>
 		</Unit>
-		<Unit filename="/home/xzhu/CLionProjects/bhtsne/sptree.h">
+		<Unit filename="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/sptree.h">
 			<Option target="bh_tsne"/>
 		</Unit>
-		<Unit filename="/home/xzhu/CLionProjects/bhtsne/tsne.cpp">
+		<Unit filename="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/testapp.cpp">
+			<Option target="testapp"/>
+		</Unit>
+		<Unit filename="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne.cpp">
 			<Option target="bh_tsne"/>
 		</Unit>
-		<Unit filename="/home/xzhu/CLionProjects/bhtsne/tsne.h">
+		<Unit filename="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne.h">
 			<Option target="bh_tsne"/>
 		</Unit>
-		<Unit filename="/home/xzhu/CLionProjects/bhtsne/tsne_main.cpp">
+		<Unit filename="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/tsne_main.cpp">
 			<Option target="bh_tsne"/>
 		</Unit>
-		<Unit filename="/home/xzhu/CLionProjects/bhtsne/CMakeLists.txt">
+		<Unit filename="/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

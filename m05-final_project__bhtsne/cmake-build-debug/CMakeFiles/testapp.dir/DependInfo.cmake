@@ -4,9 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/xzhu/CLionProjects/bhtsne/sptree.cpp" "/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles/bhtsne.dir/sptree.cpp.o"
-  "/home/xzhu/CLionProjects/bhtsne/tsne.cpp" "/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles/bhtsne.dir/tsne.cpp.o"
-  "/home/xzhu/CLionProjects/bhtsne/tsne_main.cpp" "/home/xzhu/CLionProjects/bhtsne/cmake-build-debug/CMakeFiles/bhtsne.dir/tsne_main.cpp.o"
+  "/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/testapp.cpp" "/home/xzhu/projects/ICS632_assignments/m05-final_project__bhtsne/cmake-build-debug/CMakeFiles/testapp.dir/testapp.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

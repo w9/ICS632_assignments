@@ -234,6 +234,7 @@ bool SPTree::insert(unsigned int new_index) {
     if (is_leaf) subdivide();
 
     // Find out where the point can be inserted
+    printf("no_children = %d", no_children);
     for (unsigned int i = 0; i < no_children; i++) {
         if (children[i]->insert(new_index)) return true;
     }
